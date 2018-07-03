@@ -1,6 +1,6 @@
 class Dog:
 
-    def  __init__(self, name, age):
+    def __init__(self, name, age):
         self.name = name
         self.age = age
 
@@ -34,4 +34,4 @@ ozzy.setBuddy(filou)
 print(ozzy.buddy.name)
 print(ozzy.buddy.age)
 
-skippy.buddy.doginfo()
+ozzy.buddy.doginfo()
