@@ -3,9 +3,7 @@ class Rechteck:
     def __init__(self, laenge, breite):
         self.myLaenge = laenge
         self.myBreite = breite
-
         print('rechteck erstellt')
-        pass
 
     def printRechteck(self):
         print('Das Rechteck hat die Laenge ' + str(self.myLaenge) +' und die Breite ' + str(self.myBreite))
@@ -21,16 +19,21 @@ class Rechteck:
         otherFI = other.calcFI()
         return selfFI > otherFI
 
-rechteck1 = Rechteck(10, 4)
+class Quadrat(Rechteck):
+    def __init__(self, seite):
+        super(Quadrat,self).__init__(seite, seite)
 
-rechteck1.printRechteck()
+    def calcUmfang(self):
+        return 4 * self.myLaenge
 
-rechteck2 = Rechteck(20,2)
+    def calcFI(self):
+        print('quadratmethode')
+        return self.myBreite * self.myBreite
 
-print(rechteck1.calcFI())
-print(rechteck2.calcFI())
+quad1 = Quadrat(5)
 
-if rechteck1.hasBiggerFI(rechteck2):
-    print('rechteck 1 ist groesser')
-else:
-    print('rechteck ist kleiner oder gleich')
+print(quad1.calcFI())
+
+recht1 = Rechteck(4, 6)
+
+print(recht1.calcFI())
