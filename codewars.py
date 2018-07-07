@@ -108,3 +108,76 @@ def solution(s):
  #       result.append(s[i:i+2])
    # return result
 
+"""Your task is to sort a given string. Each word in the String will contain a single number. This number is the position the word should have in the result.
+
+Note: Numbers can be from 1 to 9. So 1 will be the first word (not 0).
+
+If the input String is empty, return an empty String. The words in the input String will only contain valid consecutive numbers.
+
+For an input: "is2 Thi1s T4est 3a" the function should return "Thi1s is2 3a T4est"
+
+your_order("is2 Thi1s T4est 3a")
+[1] "Thi1s is2 3a T4est"""
+
+def order(words):
+  return ' '.join(sorted(words.split(), key=lambda w:sorted(w)))
+
+
+
+
+def race(v1, v2, g):
+    h = int(g/(v2-v1))
+    m = int((g % (v2-v1)) * 60 / (v2-v1))
+    s = int((((g % (v2-v1)) * 60) % (v2-v1)) * 60 / (v2-v1))
+    return None if v1 >= v2 else [h, m, s]
+
+#def race(v1, v2, g):
+#    if v1>v2: return None
+#  res = g*3600/(v2-v1)
+#   return [res/3600,res%3600/60,res%60]
+
+
+"""There is an array with some numbers. All numbers are equal except for one. Try to find it!
+
+findUniq([ 1, 1, 1, 2, 1, 1 ]) === 2
+findUniq([ 0, 0, 0.55, 0, 0 ]) === 0.55
+It’s guaranteed that array contains more than 3 numbers.
+
+The tests contain some very huge arrays, so think about performance.
+
+This is the first kata in series:
+
+Find the unique number (this kata)
+Find the unique string
+Find The Uniqu"""
+
+def find_uniq(arr):
+        # your code here
+        arr.sort()
+
+        if (arr[0] < arr[len(arr) - 1] and arr[0] < arr[len(arr) - 2]):
+            n = arr[0]
+        else:
+            n = arr[len(arr) - 1]
+
+        return n  # n: unique integer in the array
+
+#def find_uniq(arr):
+#    a, b = set(arr)
+#    return a if arr.count(a) == 1 else b
+
+def century(year):
+    # Finish this :)
+    return int(year / 100 + 1)
+
+print(century(188))
+
+
+"""Your car is old, it breaks easily. The shock absorbers are gone and you think it can handle about 15 more bumps before it dies totally.
+
+Unfortunately for you, your drive is very bumpy! Given a string showing either flat road ("_") or bumps ("n"), work out if you make it home
+ safely. 15 bumps or under, return "Woohoo!", over 15 bumps return "Car Dead"."""
+
+def bumps(road):
+    return "Woohoo!" if road.count("n") <= 15 else "Car Dead"
+
